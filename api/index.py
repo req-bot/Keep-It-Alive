@@ -6,8 +6,11 @@ import pandas as pd
 app = Flask(__name__)
 
 def keep_alive(url):
-    res = requests.get(url,timeout=1)
-    print(url)
+    try:
+        res = requests.get(url,timeout=1)
+        print(url)
+    except:
+        print("Error for url :- ",url)
 
 @app.route('/')
 def hello():
